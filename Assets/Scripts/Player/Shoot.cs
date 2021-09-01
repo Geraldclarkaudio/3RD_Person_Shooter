@@ -25,7 +25,13 @@ public class Shoot : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(rayOrigin, out hitInfo))
             {
-                Debug.Log("Hit: " + hitInfo.collider.name);
+                //get reference to object hit health system.
+                Health health = hitInfo.collider.GetComponent<Health>();
+
+                if(health != null)
+                {
+                    health.Damage(50);
+                }
             }
         }
     
