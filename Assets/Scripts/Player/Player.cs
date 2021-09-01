@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
         //clamp between 0 and 15
         Vector3 currentCamRot = mainCam.gameObject.transform.localEulerAngles;
         currentCamRot.x -= mouseY * _cameraSensitivity;
+        currentCamRot.x = Mathf.Clamp(currentCamRot.x, 10, 26);
         mainCam.gameObject.transform.localRotation = Quaternion.AngleAxis(currentCamRot.x, Vector3.right);
     }
 }
