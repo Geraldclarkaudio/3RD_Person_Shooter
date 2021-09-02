@@ -46,21 +46,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if within range stop moving. 
-        if(enemyState == EnemyState.Chase)
+        switch(enemyState)
         {
-            CalculateMovement();
-        }
+            case EnemyState.Attack:
+                Attack();
+                break;
 
-        if(enemyState == EnemyState.Attack)
-        {
-            //cool down implementation
+            case EnemyState.Chase:
+                CalculateMovement();
+                break;
 
-            if(Time.time > nextAttack)
-            {
-                playerHealth.Damage(10);
-                nextAttack = Time.time + _attackDelay;
-            }
+            case EnemyState.Idle:
+                break;
         }
     }
 
@@ -79,21 +76,28 @@ public class Enemy : MonoBehaviour
         _controller.Move(_velocity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Attack()
     {
-        if(other.tag == "Player")
+        if (Time.time > nextAttack)
         {
-            enemyState = EnemyState.Attack;
+            if(playerHealth != null)
+            {
+                playerHealth.Damage(10);
+                nextAttack = Time.time + _attackDelay;
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void StartAttack()
     {
-        if(other.tag == "Player")
-        {
-            enemyState = EnemyState.Chase;
-        }
-       
+        enemyState = EnemyState.Attack;
     }
+
+    public void StopAttack()
+    {
+        enemyState = EnemyState.Chase;
+    }
+
+    
 }
 

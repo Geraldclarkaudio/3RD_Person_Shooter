@@ -680,6 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5b5b69fce25ea4fa1f5f125a78809a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodSplat: {fileID: 8729043021112652020, guid: 819c6268a8e154147984aa729b6f126b,
+    type: 3}
 --- !u!114 &1518502101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +797,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495620246, guid: 5290f77abef9f7c4aae9561d9cd0b8e3, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7201160245437887632, guid: 5290f77abef9f7c4aae9561d9cd0b8e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -854,6 +860,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201160245437887636, guid: 5290f77abef9f7c4aae9561d9cd0b8e3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201160245437887637, guid: 5290f77abef9f7c4aae9561d9cd0b8e3,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5290f77abef9f7c4aae9561d9cd0b8e3, type: 3}

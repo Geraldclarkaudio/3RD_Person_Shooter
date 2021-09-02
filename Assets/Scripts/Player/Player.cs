@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
             Vector3 direction = new Vector3(horizontalMovement, 0, verticalMovement);
             _velocity = direction *= _speed;
 
+            _velocity = transform.TransformDirection(_velocity);
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //jump
@@ -70,8 +72,6 @@ public class Player : MonoBehaviour
         }
 
         _velocity.y -= _gravity * Time.deltaTime;
-
-        _velocity = transform.TransformDirection(_velocity);
         _controller.Move(_velocity * Time.deltaTime);
     }
 
